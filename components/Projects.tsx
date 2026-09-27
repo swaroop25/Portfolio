@@ -1,0 +1,6 @@
+import PersonalProjects from './PersonalProjects';
+import {ArrowUpRight} from 'lucide-react';
+import {projects} from '@/lib/content';
+import Reveal from './Reveal';
+import ProjectArt from './ProjectArt';
+export default function Projects(){return <section id="work" className="section projects container"><Reveal className="section-heading work-heading"><div><div className="eyebrow">THINGS I'VE HELPED DATA DO</div><h2>Selected Work<span className="accent">.</span></h2><p>Some problems look better after meeting data.</p></div><span className="work-count">01 — 06</span></Reveal><PersonalProjects/><div className="project-grid">{projects.map((p,i)=><Reveal delay={i*.08} key={p.title}><article className="project-card"><ProjectArt type={p.type}/><div className="project-content"><div className="project-category">0{i+4} / {p.category}</div><h3>{p.title}</h3><p>{p.description}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div><a className="project-link" href={`mailto:swaroop2526@gmail.com?subject=${encodeURIComponent(`Let's talk about ${p.title}`)}`} aria-label={`Discuss ${p.title}`}>Let's talk about this work <ArrowUpRight size={17}/></a></div></article></Reveal>)}</div></section>}

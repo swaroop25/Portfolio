@@ -1,0 +1,4 @@
+import ContactDetails from './ContactDetails';
+import {Mail,Linkedin,ArrowUpRight} from 'lucide-react';
+import Reveal from './Reveal';
+export default function Contact(){return <section id="contact" className="section contact container"><Reveal><div className="eyebrow">HAVE DATA?</div><h2>Let's make it <span>useful<svg viewBox="0 0 250 16" aria-hidden="true"><path d="M3 11Q118-5 247 6M40 15Q130 5 205 12"/></svg></span>.</h2><p>Whether it's a dashboard, data pipeline or a reporting problem<br className="desktop-break"/> that refuses to behave — let's talk.</p><div className="contact-links"><a href="mailto:swaroop2526@gmail.com" className="button primary"><Mail size={17}/>Email Me<ArrowUpRight size={15}/></a><a href="https://www.linkedin.com/in/swaroopmdataanalyst/" target="_blank" rel="noopener noreferrer" className="button secondary"><Linkedin size={17}/>LinkedIn<ArrowUpRight size={15}/></a></div><ContactDetails/></Reveal></section>}

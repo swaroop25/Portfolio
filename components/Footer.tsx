@@ -1,0 +1,1 @@
+export default function Footer(){return <footer className="container"><div className="footer-inner"><p>Built with data, caffeine & curiosity.</p><p><span/>© {new Date().getFullYear()} Sai Swaroop</p></div></footer>}

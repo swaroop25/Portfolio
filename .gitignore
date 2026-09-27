@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.next-dev/
+.video-tools/
+out/
+*.tsbuildinfo
+.sites-runtime/
+.openai/
+*.tar.gz
+*.zip
+.env*

@@ -1,0 +1,46 @@
+'use client';
+
+import {useRef,useState,useEffect} from 'react';
+import {Play,ArrowUpRight,ArrowLeft} from 'lucide-react';
+import Reveal from './Reveal';
+
+export default function VideoResume(){
+  const videoRef=useRef<HTMLVideoElement>(null);
+  const playRef=useRef<HTMLButtonElement>(null);
+  const [started,setStarted]=useState(false);
+  const [error,setError]=useState(false);
+  function closeVideo(){
+    const video=videoRef.current;
+    video?.pause();
+    if(video){video.currentTime=0;video.load();}
+    setStarted(false);
+    requestAnimationFrame(()=>playRef.current?.focus({preventScroll:true}));
+  }
+  useEffect(()=>{
+    if(!started)return;
+    const activeVideo=videoRef.current;
+    activeVideo?.play().catch(()=>setStarted(false));
+    const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&!document.fullscreenElement&&!document.querySelector('dialog[open]'))closeVideo();};
+    document.addEventListener('keydown',escape);
+    return ()=>document.removeEventListener('keydown',escape);
+  },[started]);
+  async function play(){
+    const video=videoRef.current;
+    if(!video) return;
+    setStarted(true);
+  }
+  return <section className="video-resume container" id="video-resume" aria-labelledby="video-title">
+    <Reveal><div className="video-heading"><div><div className="eyebrow">BEYOND THE NUMBERS</div><h2 id="video-title">My story, in motion<span className="accent">.</span></h2></div><p>A personal introduction.<br/>In my own words.</p></div>
+      {started&&<button type="button" className="video-close" onClick={closeVideo}><ArrowLeft size={17}/>Close video</button>}
+      <div className="video-frame">
+        <video key={started ? 'playing' : 'poster'} ref={videoRef} controls={started} playsInline preload="none" poster="/video/resume-memoji.png" aria-label="Sai Swaroop's video résumé" onError={()=>setError(true)} tabIndex={started?0:-1}>
+          <source src="/video/resume.mp4" type="video/mp4"/>
+          Your browser does not support embedded video. <a href="/video/resume.mp4">Download the video résumé.</a>
+        </video>
+        {!started&&!error&&<button ref={playRef} className="video-cover memoji-cover" onClick={play} aria-label="Play Sai Swaroop's video résumé"><span className="video-play"><Play size={28} fill="currentColor"/></span><span className="video-cover-copy"><span>MEET SAI SWAROOP</span><strong>A little more<br/>than a résumé.</strong><span className="video-watch">WATCH MY VIDEO RÉSUMÉ <ArrowUpRight size={15}/></span></span></button>}
+      </div>
+      <div className="video-foot"><span>SAI SWAROOP · DATA & ANALYTICS</span><a href="/video/resume.mp4" download>Download video <ArrowUpRight size={13}/></a></div>
+      {error&&<p role="alert" className="video-error">This browser couldn’t play the video. Use the download link to watch it on your device.</p>}
+    </Reveal>
+  </section>;
+}

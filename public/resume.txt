@@ -1,0 +1,17 @@
+SAI SWAROOP
+Data Analyst | BI & Analytics Engineer
+
+PROFILE
+5+ years of experience with Power BI, SQL, Azure, Databricks and Snowflake. Building automated dashboards, scalable data pipelines and reporting solutions.
+
+EXPERIENCE
+Infosys — Technology Analyst | 2025–Present
+10+ interactive Power BI reports; 10+ linked Dataflows; 8+ Paginated Reports; 50+ reusable DAX measures. Reduced manual reporting activity by approximately 40%.
+
+TCS — Data Analyst / System Engineer | 2021–2024
+15+ business dashboards; 10+ Azure Data Factory pipelines; 7+ SQL stored procedures. Improved pipeline processing performance by approximately 25%.
+
+SKILLS
+Power BI, SQL, Python, Microsoft Fabric, Azure Data Factory, Databricks, Snowflake, Azure Synapse, Power Query, DAX, Tableau, Azure.
+
+Selected work: Global Sales & Profitability Analytics; Order Creation & API Monitoring; Cloud Data & Reporting Automation.

@@ -1,0 +1,5 @@
+'use client';
+import {useState,useEffect} from 'react';
+import {Menu,X,ArrowUpRight} from 'lucide-react';
+const links=['Home','About','Experience','Work','Contact'];
+export default function Navbar(){ const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false); useEffect(()=>{const handle=()=>setScrolled(window.scrollY>20); handle();window.addEventListener('scroll',handle,{passive:true});return()=>window.removeEventListener('scroll',handle)},[]); return <header className={`navbar ${scrolled?'scrolled':''}`}><div className="container nav-inner"><a className="signature" href="#home" aria-label="Swaroop home">Swaroop<span>.</span></a><nav aria-label="Main navigation" className={open?'nav-links open':'nav-links'}>{links.map(l=><a key={l} href={`#${l.toLowerCase()}`} onClick={()=>setOpen(false)}>{l}{l==='Contact'&&<ArrowUpRight size={14}/>}</a>)}</nav><button className="menu-button" aria-label={open?'Close navigation':'Open navigation'} aria-expanded={open} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></div></header> }
