@@ -53,3 +53,6 @@
 @keyframes menu-arrive{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:640px){.data-graphic{height:110px;margin:-25px 0 0}.data-graphic>span{font-size:8px}.project-group-heading:after{display:none}}
 @media(prefers-reduced-motion:reduce){.dashboard-preview:hover,.dashboard-preview:hover img,.dashboard-preview:hover .preview-hint{transform:none}.reveal{filter:none!important}}
+
+.rotating-role-heading{display:block}.role-prefix{display:block;margin-bottom:4px}.role-slot{position:relative;display:inline-block;max-width:100%;color:#dac5ee}.role-sizing{visibility:hidden;white-space:nowrap;padding-right:.5em}.role-word{position:absolute;left:0;top:0;white-space:nowrap}.role-letter{display:inline-block}.role-cursor{position:absolute;right:0;top:0;color:#a855f7;font-weight:400;animation:blink 1.2s step-end infinite}.about h2:has(.rotating-role-heading){font-weight:700;font-size:clamp(26px,4vw,43px)}
+@media(prefers-reduced-motion:reduce){.role-letter{opacity:1!important;transform:none!important;filter:none!important}.role-cursor{animation:none}}

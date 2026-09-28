@@ -5,8 +5,8 @@ import {animate,useInView,useReducedMotion} from 'framer-motion';
 
 const stats=[
   {value:5,suffix:'+',label:'Years of Experience'},
-  {value:25,suffix:'+',label:'Dashboards Built'},
-  {value:40,suffix:'+',label:'DAX Measures Created'},
+  {value:40,suffix:'+',label:'Dashboards Built'},
+  {value:200,suffix:'+',label:'DAX Measures Created'},
   {value:35,suffix:'%',label:'Support Dependency Reduced'},
 ];
 
@@ -18,7 +18,7 @@ export default function Stats(){
 
   useEffect(()=>{
     if(!visible || reduced) return;
-    const controls=animate(0,1,{duration:2,ease:[.16,1,.3,1],onUpdate:setProgress});
+    const controls=animate(0,1,{duration:3,ease:[.25,.1,.25,1],onUpdate:setProgress});
     return ()=>controls.stop();
   },[visible,reduced]);
 
